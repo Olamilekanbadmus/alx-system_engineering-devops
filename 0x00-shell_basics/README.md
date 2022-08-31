@@ -1,3 +1,1 @@
-delete betty
-delete directory
-10-back
+11-list
