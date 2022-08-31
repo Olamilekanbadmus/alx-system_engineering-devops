@@ -1,1 +1,2 @@
 school.mgc
+shool.mgc
