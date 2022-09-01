@@ -10,3 +10,4 @@ jame-bond
 John Doe
 mirror permissions
 directories permisions
+Permisions
