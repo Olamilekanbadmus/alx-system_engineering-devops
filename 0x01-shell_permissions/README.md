@@ -8,3 +8,4 @@ mutliple permisions
 everybody
 jame-bond
 John Doe
+mirror permissions
