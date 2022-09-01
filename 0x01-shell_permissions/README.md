@@ -11,3 +11,4 @@ John Doe
 mirror permissions
 directories permisions
 Permisions
+chnage group
