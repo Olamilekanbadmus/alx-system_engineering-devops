@@ -12,3 +12,6 @@ mirror permissions
 directories permisions
 Permisions
 chnage group
+owner group
+link permissions
+if only
