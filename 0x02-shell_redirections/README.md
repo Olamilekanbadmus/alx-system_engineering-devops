@@ -10,3 +10,11 @@ duplicate
 directories
 newest files
 findthatword
+countword
+whatsnext
+hidethisword
+letteronly
+AZ
+Hiago
+reverse
+User home
