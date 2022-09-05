@@ -9,3 +9,4 @@ lastlines
 duplicate
 directories
 newest files
+findthatword
