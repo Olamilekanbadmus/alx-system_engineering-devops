@@ -8,3 +8,4 @@ lastlines
 10-no-more
 duplicate
 directories
+newest files
