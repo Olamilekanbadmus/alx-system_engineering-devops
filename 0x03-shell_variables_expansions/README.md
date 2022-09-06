@@ -7,3 +7,5 @@ odd
 water stir
 global varriables
 Local variables
+global variable
+true
