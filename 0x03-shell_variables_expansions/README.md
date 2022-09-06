@@ -11,3 +11,4 @@ global variable
 true
 love
 decimal
+paths
