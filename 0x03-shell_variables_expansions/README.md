@@ -5,3 +5,4 @@ combination
 float
 odd
 water stir
+global varriables
