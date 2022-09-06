@@ -10,3 +10,4 @@ Local variables
 global variable
 true
 love
+decimal
