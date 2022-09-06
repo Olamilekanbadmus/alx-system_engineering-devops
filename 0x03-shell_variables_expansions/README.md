@@ -6,3 +6,4 @@ float
 odd
 water stir
 global varriables
+Local variables
