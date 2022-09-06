@@ -9,3 +9,4 @@ global varriables
 Local variables
 global variable
 true
+love
