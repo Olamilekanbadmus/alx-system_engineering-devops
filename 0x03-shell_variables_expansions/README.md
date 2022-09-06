@@ -12,3 +12,4 @@ true
 love
 decimal
 paths
+rot
