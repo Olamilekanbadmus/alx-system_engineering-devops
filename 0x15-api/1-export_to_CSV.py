@@ -32,4 +32,3 @@ if __name__ == "__main__":
             )
     with open('{}.csv'.format(employee_id), 'w') as myFile:
         myFile.write(builder)
-Footer
