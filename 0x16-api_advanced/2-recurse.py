@@ -1,36 +1,39 @@
 #!/usr/bin/python3
+"""script for parsing web data from an api
 """
-Query Reddit API recursively for all hot articles of a given subreddit
-"""
+import json
 import requests
+import sys
 
 
-def recurse(subreddit, hot_list=[], after="tmp"):
+def recurse(subreddit, hot_list=[]):
+    """api call to reddit to get the number of subscribers
     """
-        return all hot articles for a given subreddit
-        return None if invalid subreddit given
-    """
-    # get user agent
-    # https://stackoverflow.com/questions/10606133/ -->
-    # sending-user-agent-using-requests-library-in-python
-    headers = requests.utils.default_headers()
-    headers.update({'User-Agent': 'My User Agent 1.0'})
-
-    # update url each recursive call with param "after"
-    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    if after != "tmp":
-        url = url + "?after={}".format(after)
-    r = requests.get(url, headers=headers, allow_redirects=False)
-
-    # append top titles to hot_list
-    results = r.json().get('data', {}).get('children', [])
-    if not results:
+    base_url = 'https://www.reddit.com/r/{}/top.json'.format(
+        subreddit
+    )
+    headers = {
+        'User-Agent':
+        'Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.9.2.3) \
+        Gecko/20100401 Firefox/3.6.3 (FM Scene 4.6.1)'
+    }
+    if len(hot_list) == 0:
+        # grab info about all users
+        url = base_url
+    else:
+        url = base_url + '?after={}_{}'.format(
+            hot_list[-1].get('kind'),
+            hot_list[-1].get('data').get('id')
+        )
+    response = requests.get(url, headers=headers)
+    resp = json.loads(response.text)
+    try:
+        # grab the info about the users' tasks
+        data = resp.get('data')
+        children = data.get('children')
+    except:
+        return None
+    if children is None or data is None or len(children) < 1:
         return hot_list
-    for e in results:
-        hot_list.append(e.get('data').get('title'))
-
-    # get next param "after" else nothing else to recurse
-    after = r.json().get('data').get('after')
-    if not after:
-        return hot_list
-    return (recurse(subreddit, hot_list, after))
+    hot_list.extend(children)
+    return recurse(subreddit, hot_list)
